@@ -1,0 +1,19 @@
+<div class="hero-unit">
+  <h2>All NominatedBadges</h2>
+  <%- linkTo('Create a new NominatedBadge', addNominatedBadgePath, {class: 'btn pull-right'}); %>
+</div>
+
+<div id="nominatedBadges-list">
+<% if (nominatedBadges) { %>
+<% for (var i = 0, ii = nominatedBadges.length; i < ii; i++) { %>
+  <div class="row list-item" id="nominatedBadge-<%= nominatedBadges[i].id; %>">
+    <div class="span8">
+      <h3><%- linkTo(nominatedBadges[i].id, nominatedBadgePath(nominatedBadges[i].id)); %></h3>
+    </div>
+    <div class="span4">
+      <h3><i class="icon-list-alt"></i><%= nominatedBadges[i].id; %></h3>
+    </div>
+  </div>
+<% } %>
+<% } %>
+</div>

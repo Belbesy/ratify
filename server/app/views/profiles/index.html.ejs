@@ -1,0 +1,19 @@
+<div class="hero-unit">
+  <h2>All Profiles</h2>
+  <%- linkTo('Create a new Profile', addProfilePath, {class: 'btn pull-right'}); %>
+</div>
+
+<div id="profiles-list">
+<% if (profiles) { %>
+<% for (var i = 0, ii = profiles.length; i < ii; i++) { %>
+  <div class="row list-item" id="profile-<%= profiles[i].id; %>">
+    <div class="span8">
+      <h3><%- linkTo(profiles[i].title, profilePath(profiles[i].id)); %></h3>
+    </div>
+    <div class="span4">
+      <h3><i class="icon-list-alt"></i><%= profiles[i].id; %></h3>
+    </div>
+  </div>
+<% } %>
+<% } %>
+</div>

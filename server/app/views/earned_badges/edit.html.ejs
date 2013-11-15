@@ -1,0 +1,23 @@
+<div class="hero-unit">
+  <form id="earnedBadge-form" class="form-horizontal" action="/earned_badges/<%= params.id %>?_method=PUT" method="POST">
+    <fieldset>
+      <legend>Update this EarnedBadge</legend>
+      <% if(params.errors) { %>
+      <div class="control-group">
+        <ul>
+        <% for(var err in params.errors) { %>
+          <li><%= params.errors[err]; %></li>
+        <% } %>
+        </ul>
+      </div>
+      <% } %>
+
+      <%- partial('form', {earnedBadge: earnedBadge}) %>
+
+      <div class="form-actions">
+        <%- contentTag('input', 'Save', {type: 'submit', class: 'btn btn-primary'}) %>
+        <%- contentTag('button', 'Remove', {type: 'submit', formaction: '/earned_badges/' + params.id + '?_method=DELETE', formmethod: 'POST', class: 'btn btn-danger'}) %>
+      </div>
+    </fieldset>
+  </form>
+</div>
